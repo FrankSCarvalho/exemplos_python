@@ -82,10 +82,14 @@ class ReportApp:
         if not self.data:
             messagebox.showwarning("Dados Vazios", "Adicione registros primeiro!")
             return
+        
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        default_name = f"relatorio_{timestamp}.csv"
             
         file_path = filedialog.asksaveasfilename(
             defaultextension=".csv",
-            filetypes=[("CSV Files", "*.csv")]
+            filetypes=[("CSV Files", "*.csv")],
+            initialfile=default_name
         )
         
         if not file_path:
@@ -104,10 +108,14 @@ class ReportApp:
         if not self.data:
             messagebox.showwarning("Dados Vazios", "Adicione registros primeiro!")
             return
+        
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        default_name = f"relatorio_{timestamp}.pdf"
             
         file_path = filedialog.asksaveasfilename(
             defaultextension=".pdf",
-            filetypes=[("PDF Files", "*.pdf")]
+            filetypes=[("PDF Files", "*.pdf")],
+            initialfile=default_name
         )
         
         if not file_path:
